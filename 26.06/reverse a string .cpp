@@ -13,10 +13,6 @@ string reverse_a_string(string s,int n){
 
 int main()
 {
-    #ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-    #endif
     //  code starts
     string s;
     cin>>s;

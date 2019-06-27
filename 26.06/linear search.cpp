@@ -14,10 +14,6 @@ int search(int a[],int n,int val){
 
 int main()
 {
-    #ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-    #endif
     //  code starts
     int i,n,val;
     cin>>n;
