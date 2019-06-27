@@ -27,10 +27,13 @@ int main()
             break;
         }
         if(dir=="RIGHT"){
+            // if in bound and not visited next
+            // go right
             if(!vis[i][j+1]&&j+1<m){
                 j++;
             }
             else{
+            // go down
                 dir="DOWN";
                 i++;
             }
