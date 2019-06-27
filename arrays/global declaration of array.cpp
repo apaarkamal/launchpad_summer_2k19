@@ -4,6 +4,9 @@ using namespace std;
 
 const int N=10;
 
+// array declared globally with a constant integer
+// this array is available for all the functions 
+// including int main
 int a[N],n;
 
 void print_array(){

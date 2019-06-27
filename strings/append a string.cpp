@@ -4,14 +4,12 @@ using namespace std;
 
 int main()
 {
-    #ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-    #endif
     //  code starts
+    // input two strings
     string s,t;
     cin>>s>>t;
     s+=t;
+    // append a string t to back of string s
     cout<<s;
 }
         

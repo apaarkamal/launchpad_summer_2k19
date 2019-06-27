@@ -5,7 +5,7 @@ using namespace std;
 int main()
 {
     //  code starts
-    int N=1000001;
+    int N=100001;
     int seivearray[N],i,j;
     for(i=0;i<N;i++){
         seivearray[i]=1;           

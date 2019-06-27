@@ -16,6 +16,8 @@ int main()
         cout<<s[i];
         i++;
         i%=n;
+        // if  i is greater then length of string
+        // then taking mod return it back to the 0th index
     }
 }
         

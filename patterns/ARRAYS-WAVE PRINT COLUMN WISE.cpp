@@ -14,6 +14,7 @@ int main()
         }        
     }
     i=0;j=0;
+    // wave print
     while(j<m){
         if(j%2==0){
             for(i=0;i<n;i++){

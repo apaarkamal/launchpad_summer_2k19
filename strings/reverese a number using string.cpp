@@ -8,6 +8,7 @@ int main()
 	string val;
 	cin>>val;
 	int sz=val.size();
+	// iterate backwards in a string
 	for(int i=sz-1;i>=0;i--){
 		cout<<val[i]; 
 	}
