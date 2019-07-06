@@ -18,6 +18,7 @@ node* createll(){
 	int n;
 	cin>>n;
 	node *head=NULL,*tail=NULL;
+	// here tail points to the current last node
 	while(n--){
 		int x;
 		cin>>x;
@@ -41,6 +42,46 @@ void print(node* head){
 		cout<<cur->val<<" ";
 		cur=cur->next;
 	}
+}
+
+int find_length(node* head){
+	int cnt=0;
+	node *cur=head;
+	while(cur){
+		cnt++;
+		cur=cur->next;
+	}
+	return cnt;
+}
+
+node* delete_kth_index(node *head,int k){
+	node *cur=head,*prev=NULL;
+	k=k-1;
+	while(k--){
+		prev=cur;
+		cur=cur->next;
+	}
+	if(prev==NULL){// if k was 1
+		head=cur->next;
+	}
+	else{
+		prev->next=cur->next;
+	}
+	return head;
+}
+
+node* reverse(node* head)
+{
+    node* cur=head;
+    node* prev=NULL;
+    while(cur)
+    {
+        node* ahead=cur->next;
+        cur->next=prev;
+        prev=cur;
+        cur=ahead;
+    }
+    return prev;
 }
 
 int main()
