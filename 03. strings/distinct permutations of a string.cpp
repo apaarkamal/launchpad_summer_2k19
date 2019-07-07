@@ -14,10 +14,9 @@ bool shouldswap(string s,int cur,int last){
 
 void permutations(string s,int cur,int n){
     if(cur==n){
-        // cout<<s<<'\n';
+        cout<<s<<'\n';
         return ;
     }
-    cout<<s<<'\n';
     int i;
     for(i=cur;i<n;i++){
         if(shouldswap(s,cur,i)){
