@@ -17,9 +17,17 @@ bool empty(node *head){
 }
 
 node* push(node* head,int x){
-	node *cur=new node(x);
-	cur->next=head;
-	return cur;
+	if(empty(head)){
+		return new node(x);
+	}
+	node *cur=head,prev=NULL;
+	while(cur){
+		prev=cur;
+		cur=cur->next;
+	}
+	node *nw=new node(x);
+	prev->next=nw;
+	return head;
 }
 
 node* pop(node *head){
@@ -30,6 +38,11 @@ node* pop(node *head){
 	else{
 		return head->next;
 	}
+}
+
+int top(node *head){
+	if(empty(head)) return -1;
+	else return head->val;
 }
 
 void print(node *head){

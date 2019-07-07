@@ -84,6 +84,22 @@ node* reverse(node* head)
     return prev;
 }
 
+node* append_k(node *head,int k){
+	node *cur=head,*prev=NULL;
+	while(k--){
+		cur=cur->next;
+	}
+	prev=head;
+	while(cur->next!=NULL){
+		cur=cur->next;
+		prev=prev->next;
+	}
+	node *temp=prev->next;
+	prev->next=NULL;
+	cur->next=head;
+	return temp;
+}
+
 int main()
 {
 	#ifndef ONLINE_JUDGE
