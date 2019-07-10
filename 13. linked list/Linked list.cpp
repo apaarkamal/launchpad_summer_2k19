@@ -189,18 +189,6 @@ node* delete_at(node* head,int pos){
     }
 }
 
-node* mid_node(node *head){
-    if(head==NULL || head->next==NULL){
-        return head;
-    }
-    node *slow=head,*fast=head->next;
-    while(fast!=NULL&&fast->next!=NULL){
-        slow=slow->next;
-        fast=fast->next->next;
-    }
-    return slow;
-}
-
 bool cycle(node* head){
     if(head==NULL){
         return false;
@@ -254,6 +242,76 @@ node* detect_break_cycle(node *head){
     }
 }
 
+node* merge_recursive(node *head1,node *head2){
+    if(head1==NULL){
+        return head2;
+    }
+    if(head2==NULL){
+        return head1;
+    }
+    if(head1->val<=head2->val){
+        head1->next=merge_recursive(head1->next,head2);
+        return head1;
+    }
+    else{
+        head2->next=merge_recursive(head1,head2->next);
+        return head2;
+    }
+}
+
+node *merge_iterative(node *head1,node *head2){
+    node *head_to_be_returned;
+    if(head1->val<=head2->val){
+        head_to_be_returned=head1;
+    }
+    else{
+        head_to_be_returned=head2;
+    }
+    while(head1 && head2){
+        while(head1->next && head1->next->val < head2->val){
+            head1=head1->next;
+        }
+        while(head2->next && head2->next->val < head1->val){
+            head2=head2->next;
+        }
+        if(head1->val < head2->val){
+            node *ahead=head1->next;
+            head1->next=head2;
+            head1=ahead;
+        }
+        else{
+            node *ahead=head2->next;
+            head2->next=head1;
+            head2=ahead;
+        }
+    }
+    return head_to_be_returned;
+}
+
+node* midPoint(node* head){
+    node* slow = head;   // SET
+    node* fast = head;
+
+    // GO
+    while(slow && fast && fast->next && fast->next->next){
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+    return slow;
+}
+
+node* mergeSort(node* head){
+    if (head == NULL || head->next == NULL) return head;
+    node* midNode = midPoint(head);
+    node* b = midNode->next;
+    midNode->next = NULL;
+
+    head = mergeSort(head);
+    b = mergeSort(b);
+    node* ans = merge_recursive(head, b);
+    return ans;
+}
+
 int main()
 {
     #ifndef ONLINE_JUDGE
@@ -261,6 +319,7 @@ int main()
     freopen("output.txt", "w", stdout);
     #endif
     //  code starts
+    // v=creation , insertion and deletion
     // node* head=createll();
     // print(head);
     // // head=reverse(head);
@@ -272,8 +331,6 @@ int main()
     // print(head);
     // head=delete_at(head,6);
     // print(head);
-    // node *midnode=mid_node(head);
-    // cout<<midnode->val<<'\n';
     // head=detect_break_cycle(head);
 
 
@@ -289,5 +346,14 @@ int main()
     // head=detect_break_cycle(head);
     // cout<<find_length(head);
 
+    // merge two sorted link list
+    // recursive and iterative
+    // node *head1=createll();
+    // node *head2=createll();
+    // node *head=merge_iterative(head1,head2);
+    // node *head=merge_recursive(head1,head2);
     
+    // node *head=createll();
+    // head=mergeSort(head);
+    // print(head);
 }        
