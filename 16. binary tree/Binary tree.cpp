@@ -34,30 +34,36 @@ node* build_btree(){
 	return cur;
 }
 
+node* build_level_order(){
+	int x;
+	cin>>x;
+	if(x==-1) return NULL;
+	node *root=new node(x);
+	queue<node*> Q;
+	Q.push(root);
+	while(!Q.empty()){
+		node *cur=Q.front();
+		Q.pop();
+		int x,y;
+		cin>>x>>y;
+		if(x!=-1){
+			cur->left=new node(x);
+			Q.push(cur->left);
+		}
+		if(y!=-1){
+			cur->right=new node(y);
+			Q.push(cur->right);
+		}
+	}
+	return root;
+}
+
 // depth first search
 void dfs(node* cur){  
 	if(cur==NULL) return;
 	cout<<cur->val<<'\n';
 	dfs(cur->left);
 	dfs(cur->right);
-	return ;
-}
-
-void bfs(node *root){
-	queue<node*> Q;
-	// starting from root 
-	Q.push(root);
-	while(!Q.empty()){
-		node *cur=Q.front();
-		Q.pop();
-		cout<<cur->val<<" ";
-		if(cur->left!=NULL){
-			Q.push(cur->left);		
-		}
-		if(cur->right!=NULL){
-			Q.push(cur->right);		
-		}
-	}
 	return ;
 }
 
@@ -88,6 +94,24 @@ void postorder(node* cur){
 	return ;
 }
 
+void bfs(node *root){
+	queue<node*> Q;
+	// starting from root 
+	Q.push(root);
+	while(!Q.empty()){
+		node *cur=Q.front();
+		Q.pop();
+		cout<<cur->val<<" ";
+		if(cur->left!=NULL){
+			Q.push(cur->left);		
+		}
+		if(cur->right!=NULL){
+			Q.push(cur->right);		
+		}
+	}
+	return ;
+}
+
 int count_size(node* cur){
 	if(cur==NULL) return 0;
 	int count_left=count_size(cur->left);
@@ -115,14 +139,38 @@ int sum_tree(node* cur){
 // print at level k
 void print_at_k(node* cur,int depth,int k){  
 	if(cur==NULL) return;
-	cout<<cur->val<<" "<<depth<<" "<<k<<'\n';
+	// cout<<cur->val<<" "<<depth<<" "<<k<<'\n';
 	if(depth==k){
-		// cout<<cur->val<<'\n';
-		// return ;
+		cout<<cur->val<<'\n';
+		return ;
 	}
 	print_at_k(cur->left,depth+1,k);
 	print_at_k(cur->right,depth+1,k);
 	return ;
+}
+
+void left_view(node *root){
+	queue<node*> Q;
+	Q.push(NULL);
+	Q.push(root);
+	while(!Q.empty()){
+		node* cur=Q.front();
+		Q.pop();
+		if(cur==NULL){
+			if(!Q.empty()){
+				cout<<Q.front()->val<<'\n';
+				Q.push(NULL);
+			}
+		}
+		else{
+			if(cur->left!=NULL){
+				Q.push(cur->left);	
+			}
+			if(cur->right!=NULL){
+				Q.push(cur->right);		
+			}	
+		}
+	}
 }
 
 int32_t main()
@@ -132,7 +180,8 @@ int32_t main()
 	freopen("output.txt", "w", stdout);
 	#endif
 	//  code starts
-	node* root=build_btree();
+	// node* root=build_btree();
+	node* root=build_level_order();
 	// dfs(root);
 	// cout<<count_size(root);
 	// bfs(root);
@@ -142,5 +191,6 @@ int32_t main()
 	// cout<<height(root);
 	// cout<<sum_tree(root);
 	// print_at_k(root,0,2);
-
+	// left_view(root);
+	
 }
