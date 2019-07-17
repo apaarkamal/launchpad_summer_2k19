@@ -121,7 +121,7 @@ int count_size(node* cur){
 }
 
 int height(node* cur){
-	if(cur==NULL) return -1;
+	if(cur==NULL) return 0;
 	int count_left=height(cur->left);
 	int count_right=height(cur->right);
 	// cout<<cur->val<<" "<<count_right+count_left+1<<'\n';
@@ -173,6 +173,79 @@ void left_view(node *root){
 	}
 }
 
+void mirror_tree(node *root){
+	if(root==NULL) return;
+	swap(root->left,root->right);
+	mirror_tree(root->left);
+	mirror_tree(root->right);
+}
+
+bool is_identical(node *root1,node *root2){
+	if(root1==NULL && root2==NULL){
+		return true;
+	}
+	if((root1!=NULL && root2==NULL) || (root1==NULL && root2!=NULL)){
+		return false;
+	}
+	bool left_same=is_identical(root1->left,root2->left);
+	bool right_same=is_identical(root1->right,root2->right);
+	bool values_equal=(root1->val==root2->val ? true : false);
+
+	return left_same && right_same && values_equal;
+}
+
+// height is calculated again and again
+int diameter(node* root){
+	if(root==NULL){
+		return 0;
+	}
+	int height_left=height(root->left);
+	int height_right=height(root->right);
+	int diameter_left=diameter(root->left);
+	int diameter_right=diameter(root->right);
+	return max({diameter_left,diameter_right,height_left+height_right});
+}
+
+// better version
+// first value is diameter of subtree
+// second value is height of subtree
+pair<int,int> diameter_easy(node* root){
+	if(root==NULL){
+		return {0,0};
+	}
+	pair<int,int> left=diameter_easy(root->left);
+	pair<int,int> right=diameter_easy(root->right);
+
+	int height_left = left.S;
+	int height_right = right.S;
+	int height_cur = max(height_left,height_right)+1;
+	int cur_diameter=max({left.F,right.F,height_left+height_right});
+
+	return {cur_diameter,height_cur};
+}
+
+
+
+
+
+// first value of pair is height
+// true or false? balanced or not?
+pair<int,bool> is_balanced(node* root){
+	if(root==NULL){
+		return {0,true};
+	}
+	pair<int,bool> left=is_balanced(root->left);
+	pair<int,bool> right=is_balanced(root->right);
+	int cur_height=max(left.F,right.F)+1;
+
+	if(abs(left.F-right.F)<=1 && left.S && right .S){
+		return {cur_height,true};
+	}
+	else{
+		return {cur_height,false};
+	}
+}
+
 int32_t main()
 {
 	#ifndef ONLINE_JUDGE
@@ -181,7 +254,7 @@ int32_t main()
 	#endif
 	//  code starts
 	// node* root=build_btree();
-	node* root=build_level_order();
+	// node* root=build_level_order();
 	// dfs(root);
 	// cout<<count_size(root);
 	// bfs(root);
@@ -192,5 +265,7 @@ int32_t main()
 	// cout<<sum_tree(root);
 	// print_at_k(root,0,2);
 	// left_view(root);
-	
+	// pair<int,int> temp=diameter_easy(root);
+	// cout<<"Diameter is "<<temp.F<<" height is "<<temp.S;
+
 }
