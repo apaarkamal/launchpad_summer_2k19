@@ -224,10 +224,6 @@ pair<int,int> diameter_easy(node* root){
 	return {cur_diameter,height_cur};
 }
 
-
-
-
-
 // first value of pair is height
 // true or false? balanced or not?
 pair<int,bool> is_balanced(node* root){
