@@ -20,8 +20,8 @@ int32_t main()
 		cin>>n;
 		// 0 means a , 1 means b
 		int dp[n+1][2];
-		dp[1][0]=1;
-		dp[1][1]=1;
+		dp[1][0]=1;//number with 1 digit of length 1
+		dp[1][1]=1;//number with 1 digit of length 1
 		for(int i=2;i<=n;i++){
 		 	dp[i][0]=dp[i-1][0]+dp[i-1][1];
 		 	dp[i][1]=dp[i-1][0];            
