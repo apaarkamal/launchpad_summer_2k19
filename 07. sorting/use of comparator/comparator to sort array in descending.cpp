@@ -2,8 +2,8 @@
 
 using namespace std;
 
-bool comparator(int a,int b){
-    if(a>b){
+bool comparator(int a, int b) {
+    if (a > b) {
         return true;
     }
     return false;
@@ -11,20 +11,19 @@ bool comparator(int a,int b){
 
 int main()
 {
-    #ifndef ONLINE_JUDGE
+#ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
-    #endif
+#endif
     //  code starts
-    int n,i;
-    cin>>n;
+    int n, i;
+    cin >> n;
     int a[n];
-    for(i=0;i<n;i++){
-        cin>>a[i];                   
+    for (i = 0; i < n; i++) {
+        cin >> a[i];
     }
-    sort(a,a+n,comparator);
-    for(i=0;i<n;i++){
-        cout<<a[i]<<'\n';                   
+    sort(a, a + n, comparator);
+    for (i = 0; i < n; i++) {
+        cout << a[i] << '\n';
     }
 }
-        

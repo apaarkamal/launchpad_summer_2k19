@@ -10,24 +10,24 @@ using namespace std;
 
 int32_t main()
 {
-    #ifndef ONLINE_JUDGE
+#ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
-    #endif
+#endif
     //  code starts
-    map<int,vector<int>> mp;
+    map<int, vector<int>> mp;
     int n;
-    cin>>n;
-    for(int i=0;i<n;i++){
+    cin >> n;
+    for (int i = 0; i < n; i++) {
         int x;
-        cin>>x;
+        cin >> x;
         mp[x].pb(i);
     }
-    for(auto x:mp){
-        cout<<"key->"<<x.F<<" ";
-        for(auto y:x.S){
-            cout<<y<<" ";
+    for (auto x : mp) {
+        cout << "key->" << x.F << " ";
+        for (auto y : x.S) {
+            cout << y << " ";
         }
-        cout<<'\n';
+        cout << '\n';
     }
 }

@@ -8,20 +8,20 @@ using namespace std;
 #define S second
 #define pb push_back
 
-const int N=100001;
+const int N = 100001;
 
 vector<int> gr[N];
 int vis[N];
 
-bool is_cyclic(int cur,int par){
-    vis[cur]=1;
-    for(int i=0;i<gr[cur].size();i++){
-        int to=gr[cur][i];
-        if(vis[to]==1 && to!=par ){
+bool is_cyclic(int cur, int par) {
+    vis[cur] = 1;
+    for (int i = 0; i < gr[cur].size(); i++) {
+        int to = gr[cur][i];
+        if (vis[to] == 1 && to != par ) {
             return true;
         }
-        else if(!vis[to]){
-            return is_cyclic(to,cur);
+        else if (!vis[to]) {
+            return is_cyclic(to, cur);
         }
     }
     return false;
@@ -29,18 +29,18 @@ bool is_cyclic(int cur,int par){
 
 int32_t main()
 {
-    #ifndef ONLINE_JUDGE
+#ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
-    #endif
+#endif
     //  code starts
-    int n,m;
-    cin>>n>>m;
-    for(int i=0;i<m;i++){
-        int x,y;
-        cin>>x>>y;
+    int n, m;
+    cin >> n >> m;
+    for (int i = 0; i < m; i++) {
+        int x, y;
+        cin >> x >> y;
         gr[x].pb(y);
         gr[y].pb(x);
     }
-    cout<<(is_cyclic(1,0)?"YES":"NO");
+    cout << (is_cyclic(1, 0) ? "YES" : "NO");
 }

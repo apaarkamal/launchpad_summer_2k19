@@ -2,72 +2,71 @@
 
 using namespace std;
 
-class node{
+class node {
 public:
 	int val;
 	node* next;
-	node(int _val){
-		val=_val;
-		next=NULL;
+	node(int _val) {
+		val = _val;
+		next = NULL;
 	}
 };
 
-bool empty(node *head){
-	return head==NULL; 
+bool empty(node *head) {
+	return head == NULL;
 }
 
-node* push(node* head,int x){
-	if(empty(head)){
+node* push(node* head, int x) {
+	if (empty(head)) {
 		return new node(x);
 	}
-	node *cur=head,prev=NULL;
-	while(cur){
-		prev=cur;
-		cur=cur->next;
+	node *cur = head, prev = NULL;
+	while (cur) {
+		prev = cur;
+		cur = cur->next;
 	}
-	node *nw=new node(x);
-	prev->next=nw;
+	node *nw = new node(x);
+	prev->next = nw;
 	return head;
 }
 
-node* pop(node *head){
-	if(empty(head)){
-		cout<<"invalid operation\n";
+node* pop(node *head) {
+	if (empty(head)) {
+		cout << "invalid operation\n";
 		return NULL;
 	}
-	else{
+	else {
 		return head->next;
 	}
 }
 
-int top(node *head){
-	if(empty(head)) return -1;
+int top(node *head) {
+	if (empty(head)) return -1;
 	else return head->val;
 }
 
-void print(node *head){
-	node *cur=head;
-	while(cur!=NULL){
-		cout<<cur->val<<" ";
-		cur=cur->next;
+void print(node *head) {
+	node *cur = head;
+	while (cur != NULL) {
+		cout << cur->val << " ";
+		cur = cur->next;
 	}
-	cout<<'\n';
+	cout << '\n';
 	return ;
 }
 
 int main()
 {
-	#ifndef ONLINE_JUDGE
+#ifndef ONLINE_JUDGE
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
-	#endif
+#endif
 	//  code starts
-	node *head=nullptr;
-	head=push(head,7);
-	head=push(head,6);
-	head=push(head,8);
-	head=pop(head);
-	head=push(head,6);
+	node *head = nullptr;
+	head = push(head, 7);
+	head = push(head, 6);
+	head = push(head, 8);
+	head = pop(head);
+	head = push(head, 6);
 	print(head);
 }
-        

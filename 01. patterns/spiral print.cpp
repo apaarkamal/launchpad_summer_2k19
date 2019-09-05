@@ -5,66 +5,65 @@ using namespace std;
 int main()
 {
     //  code starts
-    int n,m;
-    cin>>n>>m;
-    int i=0,j=0;
+    int n, m;
+    cin >> n >> m;
+    int i = 0, j = 0;
     int a[n][m];
     int vis[n][m];
-    for(i=0;i<n;i++){
-        for(j=0;j<m;j++){
-            cin>>a[i][j];               
-            vis[i][j]=0;
-        }        
+    for (i = 0; i < n; i++) {
+        for (j = 0; j < m; j++) {
+            cin >> a[i][j];
+            vis[i][j] = 0;
+        }
     }
-    int cnt=0;
-    string dir="RIGHT";
-    i=0;j=0;
-    while(1){
-        cout<<a[i][j]<<'\n';
-        vis[i][j]=1;
+    int cnt = 0;
+    string dir = "RIGHT";
+    i = 0; j = 0;
+    while (1) {
+        cout << a[i][j] << '\n';
+        vis[i][j] = 1;
         cnt++;
-        if(cnt==m*n){
+        if (cnt == m * n) {
             break;
         }
-        if(dir=="RIGHT"){
+        if (dir == "RIGHT") {
             // if in bound and not visited next
             // go right
-            if(!vis[i][j+1]&&j+1<m){
+            if (!vis[i][j + 1] && j + 1 < m) {
                 j++;
             }
-            else{
-            // go down
-                dir="DOWN";
+            else {
+                // go down
+                dir = "DOWN";
                 i++;
             }
         }
-        else if(dir=="LEFT"){
-            if(j-1>=0&&!vis[i][j-1]){
+        else if (dir == "LEFT") {
+            if (j - 1 >= 0 && !vis[i][j - 1]) {
                 j--;
             }
-            else{
-                dir="UP";
+            else {
+                dir = "UP";
                 i--;
             }
         }
-        else if(dir=="DOWN"){
-            if(i+1<n&&!vis[i+1][j]){
+        else if (dir == "DOWN") {
+            if (i + 1 < n && !vis[i + 1][j]) {
                 i++;
             }
-            else{
-                dir="LEFT";
+            else {
+                dir = "LEFT";
                 j--;
             }
         }
-        else if(dir=="UP"){
-            if(i-1>=0&&!vis[i-1][j]){
+        else if (dir == "UP") {
+            if (i - 1 >= 0 && !vis[i - 1][j]) {
                 i--;
             }
-            else{
-                dir="RIGHT";
+            else {
+                dir = "RIGHT";
                 j++;
             }
         }
     }
 }
-        

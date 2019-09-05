@@ -8,43 +8,43 @@ using namespace std;
 #define S second
 #define pb push_back
 
-void fun(string s,int pos,vector<string> v){
-	if(pos==s.size()){
-		for(auto x:v){
-			char to_print='A'+(stoi(x)-1);
-			cout<<to_print;
+void fun(string s, int pos, vector<string> v) {
+	if (pos == s.size()) {
+		for (auto x : v) {
+			char to_print = 'A' + (stoi(x) - 1);
+			cout << to_print;
 		}
-		cout<<'\n';
+		cout << '\n';
 		return;
 	}
 	//
-	string temp=s.substr(pos,1);
+	string temp = s.substr(pos, 1);
 	v.pb(temp);
-	fun(s,pos+1,v);
-	// 
-	if(pos+1<s.size() && (s[pos]=='1')){
+	fun(s, pos + 1, v);
+	//
+	if (pos + 1 < s.size() && (s[pos] == '1')) {
 		v.pop_back();
-		temp=s.substr(pos,2);
+		temp = s.substr(pos, 2);
 		v.pb(temp);
-		fun(s,pos+2,v);
+		fun(s, pos + 2, v);
 	}
-	if(pos+1<s.size() && s[pos]=='2' && s[pos+1]<='6'){
+	if (pos + 1 < s.size() && s[pos] == '2' && s[pos + 1] <= '6') {
 		v.pop_back();
-		temp=s.substr(pos,2);
+		temp = s.substr(pos, 2);
 		v.pb(temp);
-		fun(s,pos+2,v);
+		fun(s, pos + 2, v);
 	}
 }
 
 int32_t main()
 {
-	#ifndef ONLINE_JUDGE
+#ifndef ONLINE_JUDGE
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
-	#endif
+#endif
 	//  code starts
 	string s;
-	cin>>s;
+	cin >> s;
 	vector<string> v;
-	fun(s,0,v);
+	fun(s, 0, v);
 }

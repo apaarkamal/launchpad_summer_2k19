@@ -8,70 +8,70 @@ using namespace std;
 #define S second
 #define pb push_back
 
-const int N=26;
+const int N = 26;
 
-class trie{
+class trie {
 public:
     trie* next[N];
     bool end;
 
-    trie(){
-        for(int i=0;i<N;i++){
-            next[i]=NULL;                  
+    trie() {
+        for (int i = 0; i < N; i++) {
+            next[i] = NULL;
         }
-        end=false;
-    } 
+        end = false;
+    }
 
 };
 
-void insert(string s,trie* root){
-    int i,n=s.size();
-    trie *cur=root;
-    for(i=0;i<n;i++){
-        if(cur->next[s[i]-'a']==NULL){
-            cur->next[s[i]-'a']=new trie();
-        }        
-        cur=cur->next[s[i]-'a'];
+void insert(string s, trie* root) {
+    int i, n = s.size();
+    trie *cur = root;
+    for (i = 0; i < n; i++) {
+        if (cur->next[s[i] - 'a'] == NULL) {
+            cur->next[s[i] - 'a'] = new trie();
+        }
+        cur = cur->next[s[i] - 'a'];
     }
-    cur->end=true;
+    cur->end = true;
 }
 
-bool search(string s,trie* root){
-    int i,n=s.size();
-    trie *cur=root;
-    for(i=0;i<n;i++){
-        if(cur==NULL){
-             return false;
+bool search(string s, trie* root) {
+    int i, n = s.size();
+    trie *cur = root;
+    for (i = 0; i < n; i++) {
+        if (cur == NULL) {
+            return false;
         }
-        cur=cur->next[s[i]-'a'];
+        cur = cur->next[s[i] - 'a'];
     }
-    if(cur!=NULL && cur->end==true){
+    if (cur != NULL && cur->end == true) {
         return true;
     }
-    else{
+    else {
         return false;
     }
 }
 
 int32_t main()
 {
-    #ifndef ONLINE_JUDGE
+#ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
-    #endif
+#endif
     //  code starts
-    int n,i;
-    cin>>n;
-    trie* root=new trie();
-    for(i=0;i<n;i++){
+    int n, i;
+    cin >> n;
+    trie* root = new trie();
+    for (i = 0; i < n; i++) {
         string s;
-        cin>>s;
-        insert(s,root);                
+        cin >> s;
+        insert(s, root);
     }
-    if(search("dasd",root)){
-        cout<<"YES EXIST";
+    if (search("dasd", root)) {
+        cout << "YES EXIST";
     }
-    else{
-        cout<<"DOES NOT EXIST";
+    else {
+        cout << "DOES NOT EXIST";
     }
 }

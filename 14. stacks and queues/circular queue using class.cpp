@@ -2,58 +2,57 @@
 
 using namespace std;
 
-const int N=5;
+const int N = 5;
 
-class Queue{
+class Queue {
 private:
-	int a[N],first,last,cnt;
+	int a[N], first, last, cnt;
 public:
-	Queue(){
-		first=0;
-		last=-1;
-		cnt=0;
+	Queue() {
+		first = 0;
+		last = -1;
+		cnt = 0;
 	}
-	void push(int val){
-		if(isfull()) return ;
+	void push(int val) {
+		if (isfull()) return ;
 		cnt++;
 		last++;
-		last%=N;
-		a[last]=val;
+		last %= N;
+		a[last] = val;
 	}
-	int pop(){
-		if(isempty()) return -1;
+	int pop() {
+		if (isempty()) return -1;
 		cnt--;
-		int temp=first;
+		int temp = first;
 		first++;
-		first%=N;
+		first %= N;
 		return a[temp];
 	}
-	bool isempty(){
-		return cnt==0;
+	bool isempty() {
+		return cnt == 0;
 	}
-	bool isfull(){
-		return cnt==N;
+	bool isfull() {
+		return cnt == N;
 	}
 };
 
 int main()
 {
-	#ifndef ONLINE_JUDGE
+#ifndef ONLINE_JUDGE
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
-	#endif
+#endif
 	//  code starts
 	Queue Q;
-	if(Q.isempty()){
-		cout<<"empty";
+	if (Q.isempty()) {
+		cout << "empty";
 	}
 	Q.push(1);
 	Q.push(2);
 	Q.push(3);
 	Q.push(4);
 	Q.push(5);
-	if(Q.isfull()){
-		cout<<"full";
+	if (Q.isfull()) {
+		cout << "full";
 	}
 }
-        

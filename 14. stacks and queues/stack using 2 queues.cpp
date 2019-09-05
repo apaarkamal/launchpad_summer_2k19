@@ -2,52 +2,51 @@
 
 using namespace std;
 
-class Stack{
+class Stack {
 public:
-	queue<int> Q1,Qr;
-	bool empty_stack(){
+	queue<int> Q1, Qr;
+	bool empty_stack() {
 		return Q1.empty();
 	}
-	void push(int x){
+	void push(int x) {
 		Q1.push(x);
 	}
-	void pop(){
+	void pop() {
 		stack<int> St;
-		while(!Q1.empty()){
+		while (!Q1.empty()) {
 			St.push(Q1.front());
 			Q1.pop();
 		}
-		while(!St.empty()){
+		while (!St.empty()) {
 			Qr.push(St.top());
 			St.pop();
 		}
 		Qr.pop();
-		while(!Qr.empty()){
+		while (!Qr.empty()) {
 			St.push(Qr.front());
 			Qr.pop();
 		}
-		while(!St.empty()){
+		while (!St.empty()) {
 			Q1.push(St.top());
 			St.pop();
 		}
 	}
-	int top(){
-		if(empty_stack()) return -1;
+	int top() {
+		if (empty_stack()) return -1;
 		else return Q1.front();
 	}
 };
 
 int main()
 {
-	#ifndef ONLINE_JUDGE
+#ifndef ONLINE_JUDGE
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
-	#endif
+#endif
 	//  code starts
 	Stack St;
 	St.push(5);
 	St.push(6);
 	St.pop();
-	cout<<St.top();
+	cout << St.top();
 }
-        

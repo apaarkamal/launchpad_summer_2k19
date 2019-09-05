@@ -10,18 +10,18 @@ using namespace std;
 
 int32_t main()
 {
-	#ifndef ONLINE_JUDGE
+#ifndef ONLINE_JUDGE
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
-	#endif
+#endif
 	//  code starts
 	string s;
-	cin>>s;
-	int n=s.size();
-	cout<<s[0];
-	for(int i=1;i<n;i++){
-	 	if(s[i]!=s[i-1]){
-	 		cout<<s[i];
-	 	}            
+	cin >> s;
+	int n = s.size();
+	cout << s[0];
+	for (int i = 1; i < n; i++) {
+		if (s[i] != s[i - 1]) {
+			cout << s[i];
+		}
 	}
 }

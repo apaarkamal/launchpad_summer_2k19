@@ -8,37 +8,37 @@ using namespace std;
 #define S second
 #define pb push_back
 
-int n,m,x,y;
+int n, m, x, y;
 
-bool check(int mid){
-	int total=m+(n-mid)*y;
-	if(total>=mid*x){
+bool check(int mid) {
+	int total = m + (n - mid) * y;
+	if (total >= mid * x) {
 		return true;
 	}
-	else{
+	else {
 		return false;
 	}
 }
 
 int32_t main()
 {
-	#ifndef ONLINE_JUDGE
+#ifndef ONLINE_JUDGE
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
-	#endif
+#endif
 	//  code starts
-	cin>>n>>m>>x>>y;
-	int lf=0,rt=n;
-	int ans=0;
-	while(lf<=rt){
-		int mid=(lf+rt)/2;
-		if(check(mid)){
-			ans=mid;
-			lf=mid+1;
+	cin >> n >> m >> x >> y;
+	int lf = 0, rt = n;
+	int ans = 0;
+	while (lf <= rt) {
+		int mid = (lf + rt) / 2;
+		if (check(mid)) {
+			ans = mid;
+			lf = mid + 1;
 		}
-		else{
-			rt=mid-1;
+		else {
+			rt = mid - 1;
 		}
 	}
-	cout<<ans;
+	cout << ans;
 }
