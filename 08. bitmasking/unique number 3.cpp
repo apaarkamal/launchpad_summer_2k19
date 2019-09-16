@@ -14,7 +14,6 @@ int32_t main()
     {
         int i, j, k, n, m, ans = 0, cnt = 0, sum = 0;
         cin >> n;
-        int total_sum[32];
         int a[n];
         for (i = 0; i < n; i++) {
             cin >> a[i];
@@ -24,10 +23,7 @@ int32_t main()
             for (i = 0; i < n; i++) {
                 if ((1 << j)&a[i]) sum++;
             }
-            total_sum[j] = sum;
-        }
-        for (i = 0; i < 32; i++) {
-            if (total_sum[i] % 3 == 1) {
+            if (sum % 3 == 1) {
                 ans += (1 << i);
             }
         }
