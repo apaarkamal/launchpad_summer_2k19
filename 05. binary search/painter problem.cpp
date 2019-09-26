@@ -23,11 +23,6 @@ bool check(int a[], int mid, int n, int k) {
 
 int32_t main()
 {
-#ifndef ONLINE_JUDGE
-	freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);
-#endif
-	//  code starts
 	int n, k, t, i, sum = 0;
 	cin >> n >> k >> t;
 	int a[n];

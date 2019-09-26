@@ -2,10 +2,6 @@
 using namespace std;
 
 int main() {
-#ifndef ONLINE_JUDGE
-	freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);
-#endif
 	// n is for vertices
 	// m is for edges
 	int i, n, m;

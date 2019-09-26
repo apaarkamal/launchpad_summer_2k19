@@ -50,11 +50,6 @@ int go(int i) {
 
 int main()
 {
-#ifndef ONLINE_JUDGE
-	freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);
-#endif
-	//  code starts
 	cin >> n;
 	cin >> s;
 	int ans = 0;

@@ -17,11 +17,6 @@ public:
 
 int32_t main()
 {
-#ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-#endif
-    //  code starts
     priority_queue<int, vector<int>, compare> Q;
     Q.push(1);
     Q.push(2);

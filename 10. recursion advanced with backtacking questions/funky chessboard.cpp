@@ -32,11 +32,6 @@ void knight(int x, int y, int cnt) {
 
 int main()
 {
-#ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-#endif
-    //  code starts
     cin >> n;
     input_grid();
     int i, j;

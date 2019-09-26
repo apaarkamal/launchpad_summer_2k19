@@ -19,11 +19,6 @@ void bubble_sort(int start, int end) {
 
 int main()
 {
-#ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-#endif
-    //  code starts
     int i, n;
     cin >> n;
     for (i = 0; i < n; i++) {

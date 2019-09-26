@@ -46,11 +46,6 @@ void bfs(int source) {
 
 int32_t main()
 {
-#ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-#endif
-    //  code starts
     int n, m;
     cin >> n >> m;
     for (int i = 0; i < m; i++) {

@@ -38,11 +38,6 @@ void fun(string s, int pos, vector<string> v) {
 
 int32_t main()
 {
-#ifndef ONLINE_JUDGE
-	freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);
-#endif
-	//  code starts
 	string s;
 	cin >> s;
 	vector<string> v;

@@ -38,11 +38,6 @@ public:
 
 int main()
 {
-#ifndef ONLINE_JUDGE
-	freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);
-#endif
-	//  code starts
 	Queue Q;
 	if (Q.isempty()) {
 		cout << "empty";

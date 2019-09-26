@@ -39,11 +39,6 @@ public:
 
 int main()
 {
-#ifndef ONLINE_JUDGE
-	freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);
-#endif
-	//  code starts
 	Stack St;
 	St.push(5);
 	St.push(6);

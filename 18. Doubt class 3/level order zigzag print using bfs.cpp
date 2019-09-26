@@ -84,11 +84,6 @@ void bfs_zigzag(node* root) {
 
 int32_t main()
 {
-#ifndef ONLINE_JUDGE
-	freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);
-#endif
-	//  code starts
 	node* root = build();
 	bfs_zigzag(root);
 }

@@ -20,11 +20,6 @@ bool comp(Person a, Person b) {
 
 int main()
 {
-#ifndef ONLINE_JUDGE
-	freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);
-#endif
-	//  code starts
 	Person p[4];
 	sort(p, p + 4, comp);
 	for (int i = 0; i < 4; i++) {

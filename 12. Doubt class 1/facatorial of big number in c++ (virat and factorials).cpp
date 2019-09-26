@@ -18,11 +18,6 @@ void multiply(int a[], int &lastpos, int num) {
 
 int main()
 {
-#ifndef ONLINE_JUDGE
-	freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);
-#endif
-	//  code starts
 	int ans[10000], i, n;
 	ans[0] = 1;
 	for (i = 1; i < 500; i++) {

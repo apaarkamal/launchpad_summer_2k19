@@ -26,11 +26,6 @@ void seive() {
 
 int32_t main()
 {
-#ifndef ONLINE_JUDGE
-	freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);
-#endif
-	//  code starts
 	seive();
 	int i, j, n, q;
 	cin >> n >> q;

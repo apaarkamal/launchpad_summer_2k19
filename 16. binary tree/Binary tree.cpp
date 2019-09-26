@@ -244,11 +244,6 @@ pair<int, bool> is_balanced(node* root) {
 
 int32_t main()
 {
-#ifndef ONLINE_JUDGE
-	freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);
-#endif
-	//  code starts
 	// node* root=build_btree();
 	// node* root=build_level_order();
 	// dfs(root);

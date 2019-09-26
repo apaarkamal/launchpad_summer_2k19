@@ -38,11 +38,6 @@ void prime_factorisation(int n) {
 
 int32_t main()
 {
-#ifndef ONLINE_JUDGE
-	freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);
-#endif
-	//  code starts
 	int n;
 	cin >> n;
 	prime_factorisation(n);

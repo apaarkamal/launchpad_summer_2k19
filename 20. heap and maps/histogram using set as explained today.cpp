@@ -10,21 +10,10 @@ using namespace std;
 #define V vector
 #define pb push_back
 
-void the_martian() {
-    ios_base:: sync_with_stdio(false);
-    cin.tie(NULL); cout.tie(NULL);
-#ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-    freopen("debug.txt", "w", stderr);
-#endif
-}
-
 const int N = 100005;
 
 int32_t main()
 {
-    the_martian();
     // int t;cin>>t;while(t--)
     {
         int i, j, k, n, m, ans = 0, cnt = 0, sum = 0;

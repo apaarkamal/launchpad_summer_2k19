@@ -16,11 +16,6 @@ int fib(int n) {
 
 int main()
 {
-#ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-#endif
-    //  code starts
     int n;
     cin >> n;
     fib(n);

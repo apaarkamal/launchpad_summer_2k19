@@ -314,10 +314,6 @@ node* mergeSort(node* head) {
 
 int main()
 {
-#ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-#endif
     //  code starts
     // v=creation , insertion and deletion
     // node* head=createll();

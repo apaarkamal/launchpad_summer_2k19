@@ -58,11 +58,6 @@ bool is_bal(string s) {
 
 int main()
 {
-#ifndef ONLINE_JUDGE
-	freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);
-#endif
-	//  code starts
 	string s;
 	cin >> s;
 	if (is_bal(s)) {

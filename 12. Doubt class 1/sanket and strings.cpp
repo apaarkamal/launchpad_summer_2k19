@@ -4,11 +4,6 @@ using namespace std;
 
 int main()
 {
-#ifndef ONLINE_JUDGE
-	freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);
-#endif
-	//  code starts
 	int k, n, i, j;
 	string s;
 	cin >> k >> s;

@@ -44,10 +44,6 @@ void print(node *head) {
 
 int main()
 {
-#ifndef ONLINE_JUDGE
-	freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);
-#endif
 	//  code starts
 	node *head = nullptr;
 	head = push(head, 7);

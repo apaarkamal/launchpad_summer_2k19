@@ -24,11 +24,6 @@ int inverse(int a) {
 
 int main()
 {
-#ifndef ONLINE_JUDGE
-	freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);
-#endif
-	//  code starts
 	ll a, b, mod;
 	cin >> a >> b >> mod;
 	cout << power_mod(a, b, mod);

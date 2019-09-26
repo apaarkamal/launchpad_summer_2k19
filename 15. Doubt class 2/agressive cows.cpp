@@ -31,11 +31,6 @@ bool check(int mid) {
 
 int32_t main()
 {
-#ifndef ONLINE_JUDGE
-	freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);
-#endif
-	//  code starts
 	cin >> n >> c;
 	for (int i = 0; i < n; i++) {
 		cin >> a[i];
