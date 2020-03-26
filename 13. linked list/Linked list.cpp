@@ -205,13 +205,20 @@ bool cycle(node* head) {
     return false;
 }
 
-node* cycle_at_pos(node* head) {
+node* cycle_at_node(node* head) {
     node *slow = head, *fast = head->next;
     while (fast != NULL && fast->next != NULL) {
         slow = slow->next;
         fast = fast->next->next;
-        if (slow == fast) return slow;
+        if (slow == fast) break;
     }
+    if(fast==NULL || fast->next==NULL) return NULL;
+    slow = head;
+    while(slow != fast){
+        slow=slow->next;
+        fast=fast->next;
+    }
+    return slow;
 }
 
 node* detect_break_cycle(node *head) {
